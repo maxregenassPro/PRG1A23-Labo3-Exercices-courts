@@ -10,15 +10,22 @@ using namespace std;
 
 int nb_char_in_file(string filename, char c){
     ifstream file_in(filename);
+    int nb = 0;
 
+    if (!file_in) return -1;
 
     while (file_in) {
         string une_ligne;
         getline(file_in, une_ligne);
-        cout << une_ligne << '\n';
+
+        for (char c_ligne : une_ligne){
+            if (c == c_ligne){
+                ++nb;
+            }
+        }
     }
 
-    return 0;
+    return nb;
 }
 
 int main() {
