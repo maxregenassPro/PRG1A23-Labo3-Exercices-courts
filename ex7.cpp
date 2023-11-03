@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -8,8 +9,28 @@ using namespace std;
 // pour b entre 2 et 36. Les chiffres de 10 à 35 utilisent
 // les lettres majuscules de A à Z.
 
-int main() {
+string en_base(int n, int b){
+    string value;
+    if (n == 0) return "0";
 
+    while (n != 0){
+        if (n%b < 10){
+            value += (char)(n%b+48);
+        } else{
+            value += (char)(n%b+55);
+        }
+        n/=b;
+    }
+
+    string reverse_value;
+    for (int i = (int)value.size()-1; i >= 0; --i) {
+        reverse_value += value[i];
+    }
+
+    return reverse_value;
+}
+
+int main() {
   for(int b = 2; b <= 36; ++b)
   {
      cout << 42 << " en base " << b << " = " << en_base(42,b) << endl;

@@ -8,6 +8,19 @@ using namespace std;
 // de fois que la caractère c apparait dans le fichier. Il doit retourner
 // une valeur négative en cas d'impossibilité d'ouvrir le fichier
 
+int nb_char_in_file(string filename, char c){
+    ifstream file_in(filename);
+
+
+    while (file_in) {
+        string une_ligne;
+        getline(file_in, une_ligne);
+        cout << une_ligne << '\n';
+    }
+
+    return 0;
+}
+
 int main() {
    cout << "Entrez le nom du fichier : " << flush;
    string filename; cin >> filename;

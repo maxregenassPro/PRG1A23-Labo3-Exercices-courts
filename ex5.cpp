@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -6,13 +7,26 @@ using namespace std;
 // mots clés switch, break, continue et goto
 
 int main() {
+    bool isGood = true;
 
-   while(true) {
+   while(isGood) {
       int n;
       cin >> n;
-      cin.ignore(numeric_limits<streamsize>::max(),'\n');
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-      switch (n) {
+      if (n == 1){
+          cout << "13" << endl;
+      } else if (n == 2){
+          cout << "2";
+      } else if (n == 3) {
+          cout << "3" << endl;
+      }else if (n == 4){
+          cout << "4";
+          isGood = false;
+      } else {
+          cout << "D" << endl;
+      }
+      /*switch (n) {
          case 1 :
             cout << "1";
          case 3 :
@@ -26,7 +40,7 @@ int main() {
             return 0;
          default:
             cout << "D";
-      }
+      }*/
       cout << endl;
    }
 }
